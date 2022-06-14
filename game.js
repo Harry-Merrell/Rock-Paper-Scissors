@@ -14,13 +14,7 @@ function computerPlay(option){
     return option;
     
 }
-//prompt player for choice
-let playerSelection = prompt("Rock, Paper, Scissors?");
-playerSelection = playerSelection.toLowerCase();
-console.log(playerSelection);
-let computerSelection;
-computerSelection = computerPlay();
-console.log(computerSelection)
+
 
 
 function playRound(playerSelection, computerSelection){
@@ -28,28 +22,28 @@ let result;
    switch(playerSelection){
     case 'rock' : {
         if(computerSelection == 'rock'){
-            result = ("Its a draw");
+            result = "Its a draw";
             break;
             
         }else if (computerSelection == 'paper'){
-            result = ("You Lose!")
+            result = "You Lose!";
             break;
         }else{
-            result = console.log("You Win!");
+            result = ("You Win!");
             break;
 
         }
     }
     case 'paper' : {
         if(computerSelection == 'paper'){
-            result = ("Its a draw");
+            result = "Its a draw";
             break;
             
         }else if (computerSelection == 'scissors'){
-            result = ("You Lose!")
+            result = "You Lose!";
             break;
         }else{
-            result = console.log("You Win!");
+            result = "You Win!";
             break;
 
         }
@@ -57,25 +51,56 @@ let result;
     }
     case 'scissors' : {
         if(computerSelection == 'scissors'){
-            result = ("Its a draw");
+            result = "Its a draw";
             break;
             
         }else if (computerSelection == 'rock'){
-            result = ("You Lose!")
+            result = "You Lose!";
             break;
         }else{
-            result = console.log("You Win!");
+            result = "You Win!";
             break;
 
         }
    
    }   
    default:
-    result = "Please check spelling"
+    result = "Please check spelling";
    
 }
 return result;
 }
 
-console.log(playRound(playerSelection, computerSelection));
 
+function game(){
+    let winCount = 0;
+    
+    let result;
+    for (let i = 0; i < 5; i++){
+        //play game
+        playerSelection = prompt("Rock, Paper, Scissors").toLowerCase();
+        
+        computerSelection = computerPlay();
+
+        let wld = playRound(playerSelection, computerSelection);
+        console.log(wld);
+
+        //win loss draw tracker
+        
+
+        if(wld == "You Win!"){
+            winCount++;
+        }
+      
+
+
+
+}
+if(winCount >= 3){
+    return "Congrats you won";
+}else{
+    return "you lose";
+}
+}
+
+game();
