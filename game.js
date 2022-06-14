@@ -29,7 +29,7 @@ let result;
             result = "You Lose!";
             break;
         }else{
-            result = ("You Win!");
+            result = "You Win!";
             break;
 
         }
@@ -82,25 +82,22 @@ function game(){
         
         computerSelection = computerPlay();
 
-        let wld = playRound(playerSelection, computerSelection);
-        console.log(wld);
-
-        //win loss draw tracker
+        console.log(playRound(playerSelection, computerSelection));
         
 
-        if(wld == "You Win!"){
+        //Win Tracker
+        if(playRound(playerSelection, computerSelection) == "You Win!"){
             winCount++;
         }
-      
-
-
-
 }
 if(winCount >= 3){
-    return "Congrats you won";
+    return console.log("Congrats you won " + winCount + " rounds.");
 }else{
-    return "you lose";
+    return console.log("You only won " + winCount + " round(s) out of 5 :(");
 }
+
+
 }
+
 
 game();
